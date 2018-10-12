@@ -17,14 +17,14 @@ class ClassList extends Component {
                 // let average = {student.grades} => {student.grades}.reduce((a,b) => a + b, 0) / {student.grades}.length;
                 // console.log('avg', average)
                 return(
-                    <div key={student.id}>
-                        <img src={student.pic} alt="thumbnail"/>
+                    <div key={student.id} className="students">
+                        <img className="thumbnail" src={student.pic} alt="thumbnail"/>
                         <h4>{student.firstName} {student.lastName}</h4>
                         <ul>
                             <li>Email: {student.email}</li>
                             <li>Company: {student.company}</li>
                             <li>Skill: {student.skill}</li>
-                            <li>Average: {student.grades}</li>
+                            <li className="divider">Average: {student.grades}</li>
                         </ul>
                     </div>
                 )
@@ -43,7 +43,6 @@ class ClassList extends Component {
         
         return (
             <div>
-                <p>STUDENTS</p>
                 {students}
             </div>
         )
@@ -51,20 +50,3 @@ class ClassList extends Component {
 }
 
 export default ClassList;
-
-// const Student = ({ body }) => {
-//     return (
-//       <div>
-//         {body.map(student => {
-//           const { _id, firstName, email } = student;
-//           return (
-//             <div key={_id}>
-//               <h2>{firstName}</h2>
-//               <p>{email}</p>
-//               <hr />
-//             </div>
-//           );
-//         })}
-//       </div>
-//     );
-//   };
