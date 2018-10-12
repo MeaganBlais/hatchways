@@ -7,10 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
             HATCHWAYS APP
-          </p>
-
         </header>
 
         <ClassList />
