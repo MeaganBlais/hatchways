@@ -1,52 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import StudentDetails from './StudentDetails';
 
-class ClassList extends Component {
-    constructor() {
-        super();
-        this.state = {
-            isLoading: true,
-            students: []
-        };
-    }
-
-    componentDidMount() {
-        fetch('https://www.hatchways.io/api/assessment/students')
-        .then(response => response.json())
-        .then(data => {
-            let students = data.students.map((student) => {
-                // let average = {student.grades} => {student.grades}.reduce((a,b) => a + b, 0) / {student.grades}.length;
-                // console.log('avg', average)
-                return(
-                    <div key={student.id} className="students">
-                        <img className="thumbnail" src={student.pic} alt="thumbnail"/>
-                        <h4>{student.firstName} {student.lastName}</h4>
-                        <ul>
-                            <li>Email: {student.email}</li>
-                            <li>Company: {student.company}</li>
-                            <li>Skill: {student.skill}</li>
-                            <li className="divider">Average: {student.grades}</li>
-                        </ul>
-                    </div>
-                )
-            })                        
-            this.setState({
-                students: students,
-                isLoading: false
-            });
-            console.log("state", this.state.students)
-        })
-        .catch(error => console.log('parsing failed', error))
-    }
-
-    render() {
-        let students = this.state.students
-        
-        return (
-            <div>
-                {students}
-            </div>
-        )
-    }
-}
+const ClassList = ({ students }) => {
+  return (
+    <div>
+      {students.map(student=><StudentDetails key={student.id} student={student}></StudentDetails>)}
+    </div>
+  );
+};
 
 export default ClassList;
+
+
+
+
