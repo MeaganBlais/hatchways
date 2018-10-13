@@ -10,7 +10,8 @@ class App extends Component {
         isLoading: true,
         students: [],
         input: '',
-        searchResults: []
+        searchResults: [],
+        showGrades: false
     };
     this.onInputChange = this.onInputChange.bind(this);
 }
@@ -30,7 +31,6 @@ class App extends Component {
     const searchResults = students.filter(student =>
         student.firstName.toLowerCase().includes(input) || student.lastName.toLowerCase().includes(input)
     )
-    console.log(input);
     this.setState({
         input: event.target.value,
         searchResults
